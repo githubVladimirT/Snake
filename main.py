@@ -109,14 +109,14 @@ class Game:
             mouse_coord = pygame.mouse.get_pos()
             mouse_events = pygame.mouse.get_pressed()
             if self.WIDTH // 2 - 50 < mouse_coord[0] < self.WIDTH//2 + 50 and self.HEIGHT//2 - 50 < mouse_coord[1] < self.HEIGHT//2 - 10:
-                pygame.draw.rect(self.surf, self.GREEN, (self.WIDTH // 2 - 50, self.HEIGHT // 2 - 70, 100, 40))
+                pygame.draw.rect(self.surf, self.GREEN, (self.WIDTH // 2 - 50, self.HEIGHT // 2 - 50, 100, 40))
                 if mouse_events[0]:
                     break
             else:
                 #pygame.draw.rect(self.surf, self.RED, (self.WIDTH//2 - 50, self.HEIGHT // 2, 100, 40))
-                pygame.draw.rect(self.surf, self.RED, (self.WIDTH // 2 - 50, self.HEIGHT // 2 - 70, 100, 40))
+                pygame.draw.rect(self.surf, self.RED, (self.WIDTH // 2 - 50, self.HEIGHT // 2 - 50, 100, 40))
             self.surf.blit(self.font_button.render('replay', 1, self.BLACK),
-                           (self.WIDTH // 2 - 33, self.HEIGHT // 2 - 60))
+                           (self.WIDTH // 2 - 33, self.HEIGHT // 2 - 40))
 
             self.clock.tick(self.fps)
             pygame.display.update()
