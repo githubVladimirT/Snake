@@ -28,8 +28,8 @@ class Game:
         pygame.mixer.pre_init(44100, -16, 2, 2048)
         pygame.mixer.init()
         pygame.init()
-        # pygame.mixer.music.load('/home/vladimir/Admin/Prof/Programming/Python3/Code/2d_Snake/System/Sounds/music.mid')
-        # pygame.mixer.music.play(9)
+        pygame.mixer.music.load('./System/Sounds/music.mid')
+        pygame.mixer.music.play(9)
         pygame.display.set_caption('Snake')
 
         self.sound_game_over = pygame.mixer.Sound('./System/Sounds/game_over.wav')
@@ -86,7 +86,7 @@ class Game:
 
     def draw(self):
         self.surf.fill(self.BLACK)
-        self.surf.blit(self.font_score.render(f'SCORE: {self.score}', 1, (0, 255, 0)), (self.WIDTH - 90, 5))
+        self.surf.blit(self.font_score.render(f'score: {self.score}', 1, (0, 255, 0)), (self.WIDTH - 90, 5))
 
         self.bg.draw(self.snake.direction)
         self.food.add_food()
@@ -103,23 +103,20 @@ class Game:
         pygame.mixer.music.stop()
         self.sound_game_over.play()
         while True:
-            self.surf.blit(self.font_end.render(f'YOUR SCORE: {self.score}', 1, (0, 255, 0)),
-                           (self.WIDTH // 2 - 130, self.HEIGHT//3 - 50))
+            self.surf.blit(self.font_end.render(f'score: {self.score}', 1, (0, 255, 0)),
+                           (self.WIDTH // 2 - 70, self.HEIGHT//3 - 50))
 
             mouse_coord = pygame.mouse.get_pos()
             mouse_events = pygame.mouse.get_pressed()
             if self.WIDTH // 2 - 50 < mouse_coord[0] < self.WIDTH//2 + 50 and self.HEIGHT//2 - 50 < mouse_coord[1] < self.HEIGHT//2 - 10:
-                pygame.draw.rect(self.surf, self.GREEN, (self.WIDTH//2 - 50, self.HEIGHT//2-50, 100, 40))
+                pygame.draw.rect(self.surf, self.GREEN, (self.WIDTH // 2 - 50, self.HEIGHT // 2 - 70, 100, 40))
                 if mouse_events[0]:
                     break
             else:
-                pygame.draw.rect(self.surf, self.RED, (self.WIDTH//2 - 50, self.HEIGHT//2 - 50, 100, 40))
-                pygame.draw.rect(self.surf, self.RED, (self.WIDTH//2 - 50, self.HEIGHT//3 + 100, 100, 40))
-            self.surf.blit(self.font_button.render('RETRY', 1, self.BLACK),
-                           (self.WIDTH // 2 - 33, self.HEIGHT // 2 - 40))
-
-            # self.surf.blit(self.font_button.render('QUIT', 1, self.BLACK),
-            #                (self.WIDTH // 2 - 27, self.HEIGHT // 3 + 110)) # EDIT: quit button
+                #pygame.draw.rect(self.surf, self.RED, (self.WIDTH//2 - 50, self.HEIGHT // 2, 100, 40))
+                pygame.draw.rect(self.surf, self.RED, (self.WIDTH // 2 - 50, self.HEIGHT // 2 - 70, 100, 40))
+            self.surf.blit(self.font_button.render('replay', 1, self.BLACK),
+                           (self.WIDTH // 2 - 33, self.HEIGHT // 2 - 60))
 
             self.clock.tick(self.fps)
             pygame.display.update()
