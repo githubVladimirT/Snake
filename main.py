@@ -28,7 +28,7 @@ class Game:
         pygame.mixer.pre_init(44100, -16, 2, 2048)
         pygame.mixer.init()
         pygame.init()
-        pygame.mixer.music.load('./System/Sounds/music.mid')
+        pygame.mixer.music.load('./System/Sounds/Geoff Zanelli — The Power of the Sea.mp3')#'./System/Sounds/music.mid')
         pygame.mixer.music.play(9)
         pygame.display.set_caption('Snake')
 
