@@ -1,6 +1,6 @@
 # Snake
 ## A simple game built using Python Pygame Library
 
-### Made with
+### Made with video from youtube channel:
 
-[![2D Snake](http://img.youtube.com/vi/XkA7qRIUACU/0.jpg)](https://www.youtube.com/watch?v=XkA7qRIUACU "Python 2D Snake game")
+https://www.youtube.com/c/StandaloneCoder
